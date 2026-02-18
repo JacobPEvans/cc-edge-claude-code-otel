@@ -1,0 +1,24 @@
+id: default
+groups: {}
+comments: []
+routes:
+  - id: default
+    name: Session Logs (File Monitor)
+    final: true
+    disabled: false
+    pipeline: main
+    description: ""
+    enableOutputExpression: false
+    filter: __inputId=='file:cc-edge-claude-code.Session-Logs-File-Monitor'
+    clones: []
+    output: default
+  - id: jZR327
+    name: OpenTelemetry (OTLP)
+    final: true
+    disabled: false
+    pipeline: main
+    description: ""
+    enableOutputExpression: false
+    filter: __inputId=='open_telemetry:cc-edge-claude-code.claude-code-otel'
+    clones: []
+    output: default
