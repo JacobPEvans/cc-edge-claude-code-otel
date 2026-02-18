@@ -1,0 +1,30 @@
+name: Build Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build .crbl pack
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+        run: |
+          tar -czf "${REPO_NAME}-${TAG_NAME}.crbl" \
+            data default package.json README.md
+
+      - name: Upload to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+        run: |
+          gh release upload "${TAG_NAME}" \
+            "${REPO_NAME}-${TAG_NAME}.crbl"
