@@ -1,4 +1,85 @@
 inputs:
+  claude-code-session:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    mode: manual
+    interval: 10
+    filenames:
+      - "*.jsonl"
+    filterArchivedFiles: false
+    tailOnly: false
+    idleTimeout: 300
+    checkFileModTime: false
+    forceText: false
+    hashLen: 256
+    staleChannelFlushMs: 10000
+    suppressMissingPathErrors: false
+    deleteFiles: false
+    saltHash: false
+    includeUnidentifiableBinary: false
+    recurse: true
+    type: file
+    path: "$CLAUDE_HOME/.claude/projects"
+    metadata:
+      - name: datatype
+        value: "'claude-code-session'"
+
+  claude-code-history:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    mode: manual
+    interval: 30
+    filenames:
+      - "history.jsonl"
+    filterArchivedFiles: false
+    tailOnly: false
+    idleTimeout: 300
+    checkFileModTime: false
+    forceText: false
+    hashLen: 256
+    staleChannelFlushMs: 10000
+    suppressMissingPathErrors: false
+    deleteFiles: false
+    saltHash: false
+    includeUnidentifiableBinary: false
+    recurse: false
+    type: file
+    path: "$CLAUDE_HOME/.claude"
+    metadata:
+      - name: datatype
+        value: "'claude-code-history'"
+
+  claude-code-stats:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    mode: manual
+    interval: 60
+    filenames:
+      - "stats-cache.json"
+    filterArchivedFiles: false
+    tailOnly: false
+    idleTimeout: 300
+    checkFileModTime: false
+    forceText: false
+    hashLen: 256
+    staleChannelFlushMs: 10000
+    suppressMissingPathErrors: false
+    deleteFiles: false
+    saltHash: false
+    includeUnidentifiableBinary: false
+    recurse: false
+    type: file
+    path: "$CLAUDE_HOME/.claude"
+    metadata:
+      - name: datatype
+        value: "'claude-code-stats'"
+
   claude-code-logs:
     disabled: false
     sendToRoutes: true
@@ -21,10 +102,119 @@ inputs:
     includeUnidentifiableBinary: false
     recurse: true
     type: file
-    path: $CLAUDE_HOME
+    path: "$CLAUDE_HOME/.claude/logs"
     metadata:
       - name: datatype
-        value: "'claude-code'"
+        value: "'claude-code-logs'"
+
+  claude-code-plans:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    mode: manual
+    interval: 60
+    filenames:
+      - "*.md"
+    filterArchivedFiles: false
+    tailOnly: false
+    idleTimeout: 300
+    checkFileModTime: false
+    forceText: false
+    hashLen: 256
+    staleChannelFlushMs: 10000
+    suppressMissingPathErrors: false
+    deleteFiles: false
+    saltHash: false
+    includeUnidentifiableBinary: false
+    recurse: false
+    type: file
+    path: "$CLAUDE_HOME/.claude/plans"
+    metadata:
+      - name: datatype
+        value: "'claude-code-plans'"
+
+  claude-code-tasks:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    mode: manual
+    interval: 30
+    filenames:
+      - "*.json"
+    filterArchivedFiles: false
+    tailOnly: false
+    idleTimeout: 300
+    checkFileModTime: false
+    forceText: false
+    hashLen: 256
+    staleChannelFlushMs: 10000
+    suppressMissingPathErrors: false
+    deleteFiles: false
+    saltHash: false
+    includeUnidentifiableBinary: false
+    recurse: true
+    type: file
+    path: "$CLAUDE_HOME/.claude/tasks"
+    metadata:
+      - name: datatype
+        value: "'claude-code-tasks'"
+
+  claude-code-teams:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    mode: manual
+    interval: 60
+    filenames:
+      - "config.json"
+    filterArchivedFiles: false
+    tailOnly: false
+    idleTimeout: 300
+    checkFileModTime: false
+    forceText: false
+    hashLen: 256
+    staleChannelFlushMs: 10000
+    suppressMissingPathErrors: false
+    deleteFiles: false
+    saltHash: false
+    includeUnidentifiableBinary: false
+    recurse: true
+    type: file
+    path: "$CLAUDE_HOME/.claude/teams"
+    metadata:
+      - name: datatype
+        value: "'claude-code-teams'"
+
+  claude-code-plugins:
+    disabled: false
+    sendToRoutes: true
+    pqEnabled: false
+    streamtags: []
+    mode: manual
+    interval: 120
+    filenames:
+      - "installed_plugins.json"
+    filterArchivedFiles: false
+    tailOnly: false
+    idleTimeout: 300
+    checkFileModTime: false
+    forceText: false
+    hashLen: 256
+    staleChannelFlushMs: 10000
+    suppressMissingPathErrors: false
+    deleteFiles: false
+    saltHash: false
+    includeUnidentifiableBinary: false
+    recurse: false
+    type: file
+    path: "$CLAUDE_HOME/.claude/plugins"
+    metadata:
+      - name: datatype
+        value: "'claude-code-plugins'"
+
   claude-code-otel:
     disabled: false
     sendToRoutes: true
@@ -43,29 +233,6 @@ inputs:
     maxActiveCxn: 1000
     extractLogs: false
     type: open_telemetry
-  Session-Logs-File-Monitor:
-    disabled: false
-    sendToRoutes: true
-    pqEnabled: false
-    streamtags: []
-    mode: manual
-    interval: 10
-    filenames:
-      - "*.jsonl"
-    filterArchivedFiles: false
-    tailOnly: false
-    idleTimeout: 300
-    checkFileModTime: false
-    forceText: false
-    hashLen: 256
-    staleChannelFlushMs: 10000
-    suppressMissingPathErrors: false
-    deleteFiles: false
-    saltHash: false
-    includeUnidentifiableBinary: false
-    recurse: true
-    type: file
-    path: $CLAUDE_HOME
     metadata:
       - name: datatype
-        value: "'claude-code'"
+        value: "'claude-code-otel'"

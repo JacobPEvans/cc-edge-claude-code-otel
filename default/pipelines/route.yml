@@ -2,22 +2,92 @@ id: default
 groups: {}
 comments: []
 routes:
-  - id: default
+  - id: session-logs
     name: Session Logs (File Monitor)
     final: true
     disabled: false
     pipeline: main
-    description: ""
+    description: "Claude Code session JSONL transcripts (includes subagent files)"
     enableOutputExpression: false
-    filter: __inputId=='file:cc-edge-claude-code.Session-Logs-File-Monitor'
+    filter: __inputId=='file:cc-edge-claude-code.claude-code-session'
     clones: []
     output: default
-  - id: jZR327
+  - id: history-logs
+    name: History (File Monitor)
+    final: true
+    disabled: false
+    pipeline: main
+    description: "Claude Code command history"
+    enableOutputExpression: false
+    filter: __inputId=='file:cc-edge-claude-code.claude-code-history'
+    clones: []
+    output: default
+  - id: stats-cache
+    name: Stats Cache (File Monitor)
+    final: true
+    disabled: false
+    pipeline: main
+    description: "Claude Code usage statistics"
+    enableOutputExpression: false
+    filter: __inputId=='file:cc-edge-claude-code.claude-code-stats'
+    clones: []
+    output: default
+  - id: app-logs
+    name: Application Logs (File Monitor)
+    final: true
+    disabled: false
+    pipeline: main
+    description: "Claude Code application logs"
+    enableOutputExpression: false
+    filter: __inputId=='file:cc-edge-claude-code.claude-code-logs'
+    clones: []
+    output: default
+  - id: plans
+    name: Plans (File Monitor)
+    final: true
+    disabled: false
+    pipeline: main
+    description: "Claude Code implementation plans"
+    enableOutputExpression: false
+    filter: __inputId=='file:cc-edge-claude-code.claude-code-plans'
+    clones: []
+    output: default
+  - id: tasks
+    name: Tasks (File Monitor)
+    final: true
+    disabled: false
+    pipeline: main
+    description: "Claude Code task lists"
+    enableOutputExpression: false
+    filter: __inputId=='file:cc-edge-claude-code.claude-code-tasks'
+    clones: []
+    output: default
+  - id: teams
+    name: Teams (File Monitor)
+    final: true
+    disabled: false
+    pipeline: main
+    description: "Claude Code team configurations"
+    enableOutputExpression: false
+    filter: __inputId=='file:cc-edge-claude-code.claude-code-teams'
+    clones: []
+    output: default
+  - id: plugins
+    name: Plugins (File Monitor)
+    final: true
+    disabled: false
+    pipeline: main
+    description: "Claude Code installed plugins"
+    enableOutputExpression: false
+    filter: __inputId=='file:cc-edge-claude-code.claude-code-plugins'
+    clones: []
+    output: default
+  - id: otel-input
     name: OpenTelemetry (OTLP)
     final: true
     disabled: false
     pipeline: main
-    description: ""
+    description: "OTLP telemetry from Claude Code sessions"
     enableOutputExpression: false
     filter: __inputId=='open_telemetry:cc-edge-claude-code.claude-code-otel'
     clones: []
