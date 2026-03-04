@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build .crbl pack
         env:
@@ -31,4 +31,5 @@ jobs:
         run: |
           gh release upload "${TAG_NAME}" \
             "${REPO_NAME}-${TAG_NAME}.crbl" \
-            "${REPO_NAME}.crbl"
+            "${REPO_NAME}.crbl" \
+            --clobber
