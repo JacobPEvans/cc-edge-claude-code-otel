@@ -31,5 +31,4 @@ jobs:
         run: |
           gh release upload "${TAG_NAME}" \
             "${REPO_NAME}-${TAG_NAME}.crbl" \
-            "${REPO_NAME}.crbl" \
-            --clobber
+            "${REPO_NAME}.crbl"
