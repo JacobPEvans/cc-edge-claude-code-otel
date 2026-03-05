@@ -498,7 +498,7 @@ Cribl Edge tracks file state in its kvstore. If you need to re-ingest files from
 
 ## Release Notes
 
-- **2.0.0** — 2026-03-05
+- **1.2.1** — 2026-03-05
   - Expanded from 2 inputs to 10 (added history, stats, logs, plans, tasks, teams, plugins)
   - Per-input `datatype` metadata for downstream sourcetype mapping
   - `CLAUDE_HOME` now points to user home directory (paths use `$CLAUDE_HOME/.claude/<subdir>`)
