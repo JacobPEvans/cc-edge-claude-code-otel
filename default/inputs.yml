@@ -34,7 +34,7 @@ inputs:
     mode: manual
     interval: 30
     filenames:
-      - "history.jsonl"
+      - "*history.jsonl"
     filterArchivedFiles: false
     tailOnly: false
     idleTimeout: 300
@@ -61,7 +61,7 @@ inputs:
     mode: manual
     interval: 60
     filenames:
-      - "stats-cache.json"
+      - "*stats-cache.json"
     filterArchivedFiles: false
     tailOnly: false
     idleTimeout: 300
@@ -169,7 +169,7 @@ inputs:
     mode: manual
     interval: 60
     filenames:
-      - "config.json"
+      - "*config.json"
     filterArchivedFiles: false
     tailOnly: false
     idleTimeout: 300
@@ -196,7 +196,7 @@ inputs:
     mode: manual
     interval: 120
     filenames:
-      - "installed_plugins.json"
+      - "*installed_plugins.json"
     filterArchivedFiles: false
     tailOnly: false
     idleTimeout: 300
