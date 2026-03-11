@@ -468,6 +468,13 @@ Cribl Edge tracks file state in its kvstore. If you need to re-ingest files from
 
 ## Release Notes
 
+- **1.2.6** — 2026-03-11
+  - Enable `tailOnly: true` on all file inputs — eliminates re-reading 121MB+ of JSONL data every poll cycle; Claude session files are append-only, only new appended data needs processing
+  - Enable `checkFileModTime: true` on all file inputs — skips unchanged files entirely, eliminating I/O across 18K+ file paths in `.claude/projects/`
+  - Increase interval 10s → 30s on `claude-code-session` and `claude-code-logs`
+  - Add `CLAUDE.md` version bump policy (AI may bump minor/patch; major requires human approval)
+- **1.2.4** — 2026-03-10
+  - Fix FileMonitor filename patterns: add leading wildcard (`*.jsonl`) required by Cribl 4.16.x FileMonitor behavior change
 - **1.2.1** — 2026-03-05
   - Expanded from 2 inputs to 10 (added history, stats, logs, plans, tasks, teams, plugins)
   - Per-input `datatype` metadata for downstream sourcetype mapping
