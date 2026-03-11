@@ -1,0 +1,9 @@
+# README validation config for Cribl Edge packs.
+# Cribl packs use "Setup" (not "Installation") and "Pack Components" (not "Usage").
+required_sections:
+  - Setup
+  - Pack Components
+optional_sections:
+  - Contributing to the Pack
+  - Release Notes
+  - Troubleshooting
