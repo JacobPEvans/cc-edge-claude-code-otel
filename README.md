@@ -39,6 +39,12 @@ The file monitor input reads the `.jsonl` transcript files that Claude Code writ
 - **Content analysis** — Search across prompts, responses, and tool outputs
 - **Cost tracking** — Per-session model usage, token counts, and USD cost from summary events
 
+> **Session file accumulation:** Claude Code writes one `.jsonl` file per conversation and never deletes them during normal operation. Claude Code's `cleanupPeriodDays` setting in `~/.claude/settings.json` controls retention, but cleanup only runs at Claude Code startup — not as a background daemon. With heavy daily usage, tens of thousands of files accumulate. A supplemental cron job is a good complement:
+> ```bash
+> # Delete session files older than 30 days (run daily via cron)
+> 0 2 * * * find /home/<user>/.claude/projects/ -name "*.jsonl" -mtime +30 -delete
+> ```
+
 ### OpenTelemetry (OTLP)
 
 The OTLP input receives **operational telemetry** pushed directly from Claude Code's built-in OpenTelemetry instrumentation over gRPC. This is structured metrics and logs — not conversation content. Use this data for:
@@ -288,12 +294,12 @@ All file monitors resolve paths via `$CLAUDE_HOME/.claude/<subdir>`. Each sets a
 
 | Input | Path | Filter | Recursive | Interval |
 |---|---|---|---|---|
-| `claude-code-session` | `projects` | `*.jsonl` | Yes | 10s |
+| `claude-code-session` | `projects` | `*.jsonl` | Yes | 300s |
 | `claude-code-history` | `.` | `history.jsonl` | No | 30s |
 | `claude-code-stats` | `.` | `stats-cache.json` | No | 60s |
-| `claude-code-logs` | `logs` | `*.jsonl` | Yes | 10s |
+| `claude-code-logs` | `logs` | `*.jsonl` | Yes | 60s |
 | `claude-code-plans` | `plans` | `*.md` | No | 60s |
-| `claude-code-tasks` | `tasks` | `*.json` | Yes | 30s |
+| `claude-code-tasks` | `tasks` | `*.json` | Yes | 60s |
 | `claude-code-teams` | `teams` | `config.json` | Yes | 60s |
 | `claude-code-plugins` | `plugins` | `installed_plugins.json` | No | 120s |
 
@@ -468,6 +474,10 @@ Cribl Edge tracks file state in its kvstore. If you need to re-ingest files from
 
 ## Release Notes
 
+- **1.2.7** — 2026-03-11
+  - Increase `claude-code-session` interval 30s → 300s — `~/.claude/projects/` grows to 20K+ files with normal usage; statting the full tree every 30s causes sustained high CPU. 5-minute polling is ample for audit/analysis use cases
+  - Increase `claude-code-logs` and `claude-code-tasks` intervals 30s → 60s — reduces stat overhead on recursive directories
+  - Add session file accumulation note to README with `cleanupPeriodDays` context and example cron job
 - **1.2.6** — 2026-03-11
   - Enable `tailOnly: true` on all file inputs — eliminates re-reading 121MB+ of JSONL data every poll cycle; Claude session files are append-only, only new appended data needs processing
   - Enable `checkFileModTime: true` on all file inputs — skips unchanged files entirely, eliminating I/O across 18K+ file paths in `.claude/projects/`

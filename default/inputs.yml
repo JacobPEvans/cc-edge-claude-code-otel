@@ -5,7 +5,7 @@ inputs:
     pqEnabled: false
     streamtags: []
     mode: manual
-    interval: 30
+    interval: 300
     filenames:
       - "*.jsonl"
     filterArchivedFiles: false
@@ -86,7 +86,7 @@ inputs:
     pqEnabled: false
     streamtags: []
     mode: manual
-    interval: 30
+    interval: 60
     filenames:
       - "*.jsonl"
     filterArchivedFiles: false
@@ -140,7 +140,7 @@ inputs:
     pqEnabled: false
     streamtags: []
     mode: manual
-    interval: 30
+    interval: 60
     filenames:
       - "*.json"
     filterArchivedFiles: false
