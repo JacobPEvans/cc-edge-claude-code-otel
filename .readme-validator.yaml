@@ -1,7 +1,6 @@
 # README validation config for Cribl Edge packs.
-# Cribl packs use "Setup" (not "Installation") and "Pack Components" (not "Usage").
+# This pack uses "Setup: Session Logs" and "Setup: OpenTelemetry" (not a plain "Setup").
 required_sections:
-  - Setup
   - Pack Components
 optional_sections:
   - Contributing to the Pack
