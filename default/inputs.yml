@@ -5,13 +5,13 @@ inputs:
     pqEnabled: false
     streamtags: []
     mode: manual
-    interval: 10
+    interval: 30
     filenames:
       - "*.jsonl"
     filterArchivedFiles: false
-    tailOnly: false
+    tailOnly: true
     idleTimeout: 300
-    checkFileModTime: false
+    checkFileModTime: true
     forceText: false
     hashLen: 256
     staleChannelFlushMs: 10000
@@ -36,9 +36,9 @@ inputs:
     filenames:
       - "*history.jsonl"
     filterArchivedFiles: false
-    tailOnly: false
+    tailOnly: true
     idleTimeout: 300
-    checkFileModTime: false
+    checkFileModTime: true
     forceText: false
     hashLen: 256
     staleChannelFlushMs: 10000
@@ -63,9 +63,9 @@ inputs:
     filenames:
       - "*stats-cache.json"
     filterArchivedFiles: false
-    tailOnly: false
+    tailOnly: true
     idleTimeout: 300
-    checkFileModTime: false
+    checkFileModTime: true
     forceText: false
     hashLen: 256
     staleChannelFlushMs: 10000
@@ -86,13 +86,13 @@ inputs:
     pqEnabled: false
     streamtags: []
     mode: manual
-    interval: 10
+    interval: 30
     filenames:
       - "*.jsonl"
     filterArchivedFiles: false
-    tailOnly: false
+    tailOnly: true
     idleTimeout: 300
-    checkFileModTime: false
+    checkFileModTime: true
     forceText: false
     hashLen: 256
     staleChannelFlushMs: 10000
@@ -117,9 +117,9 @@ inputs:
     filenames:
       - "*.md"
     filterArchivedFiles: false
-    tailOnly: false
+    tailOnly: true
     idleTimeout: 300
-    checkFileModTime: false
+    checkFileModTime: true
     forceText: false
     hashLen: 256
     staleChannelFlushMs: 10000
@@ -144,9 +144,9 @@ inputs:
     filenames:
       - "*.json"
     filterArchivedFiles: false
-    tailOnly: false
+    tailOnly: true
     idleTimeout: 300
-    checkFileModTime: false
+    checkFileModTime: true
     forceText: false
     hashLen: 256
     staleChannelFlushMs: 10000
@@ -171,9 +171,9 @@ inputs:
     filenames:
       - "*config.json"
     filterArchivedFiles: false
-    tailOnly: false
+    tailOnly: true
     idleTimeout: 300
-    checkFileModTime: false
+    checkFileModTime: true
     forceText: false
     hashLen: 256
     staleChannelFlushMs: 10000
@@ -198,9 +198,9 @@ inputs:
     filenames:
       - "*installed_plugins.json"
     filterArchivedFiles: false
-    tailOnly: false
+    tailOnly: true
     idleTimeout: 300
-    checkFileModTime: false
+    checkFileModTime: true
     forceText: false
     hashLen: 256
     staleChannelFlushMs: 10000
