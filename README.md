@@ -39,11 +39,7 @@ The file monitor input reads the `.jsonl` transcript files that Claude Code writ
 - **Content analysis** — Search across prompts, responses, and tool outputs
 - **Cost tracking** — Per-session model usage, token counts, and USD cost from summary events
 
-> **Session file accumulation:** Claude Code writes one `.jsonl` file per conversation and never deletes them during normal operation. Claude Code's `cleanupPeriodDays` setting in `~/.claude/settings.json` controls retention, but cleanup only runs at Claude Code startup — not as a background daemon. With heavy daily usage, tens of thousands of files accumulate. A supplemental cron job is a good complement:
-> ```bash
-> # Delete session files older than 30 days (run daily via cron)
-> 0 2 * * * find /home/<user>/.claude/projects/ -name "*.jsonl" -mtime +30 -delete
-> ```
+> **Session file accumulation:** Claude Code writes one `.jsonl` file per conversation. The `cleanupPeriodDays` setting in `~/.claude/settings.json` controls how long transcripts are retained (default: 30 days, set to `0` to disable). With heavy daily usage, tens of thousands of files can accumulate if this is not set.
 
 ### OpenTelemetry (OTLP)
 
